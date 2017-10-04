@@ -2,7 +2,11 @@ group 'com.victorsalaun.bestof'
 version '1.0.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.51'
+    ext {
+        kotlin_version = '1.1.51'
+        spring_boot_version = '2.0.0.M4'
+        h2_version = '1.4.196'
+    }
 
     repositories {
         mavenCentral()
@@ -11,14 +15,16 @@ buildscript {
         }
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:2.0.0.M3"
+        classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: kotlin_version
+        classpath group: 'org.springframework.boot', name: 'spring-boot-gradle-plugin', version: spring_boot_version
     }
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'maven'
-apply plugin: 'org.springframework.boot'
+apply {
+    plugin: 'kotlin'
+    plugin: 'maven'
+    plugin: 'org.springframework.boot'
+}
 
 repositories {
     mavenCentral()
@@ -30,8 +36,11 @@ repositories {
 dependencies {
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre8', version: kotlin_version
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlin_version
-    compile group: 'org.jetbrains.kotlin', name:'kotlin-reflect', version: kotlin_version
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.0.M3'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlin_version
+
+    compile group: 'com.h2database', name: 'h2', version: h2_version
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: spring_boot_version
 }
 
 compileKotlin {

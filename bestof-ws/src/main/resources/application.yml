@@ -1,0 +1,9 @@
+logging.level:
+  com.victorsalaun.ws:
+    command: INFO
+    query: DEBUG
+
+spring:
+  application:
+    name: BESTOF-WS
+

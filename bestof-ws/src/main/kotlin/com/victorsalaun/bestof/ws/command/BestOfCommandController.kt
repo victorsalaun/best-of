@@ -16,26 +16,28 @@ class BestOfCommandController @Autowired constructor(
     @RequestMapping(
             value = "/bestof",
             method = arrayOf(RequestMethod.POST),
+            consumes = arrayOf(MediaType.APPLICATION_JSON_VALUE),
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE))
     private fun create(@RequestBody bestOf: BestOf): BestOf {
-        logger.info("Creating new BestOf" + bestOf.toString())
+        logger.info("Received data for new " + bestOf.toString())
         return bestOfCommandService.create(bestOf)
     }
 
     @RequestMapping(
             value = "/bestof",
             method = arrayOf(RequestMethod.PUT),
+            consumes = arrayOf(MediaType.APPLICATION_JSON_VALUE),
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE))
     private fun update(@RequestBody bestOf: BestOf): BestOf {
-        logger.info("Updating BestOf" + bestOf.toString())
+        logger.info("Received data for updating " + bestOf.toString())
         return bestOfCommandService.update(bestOf)
     }
 
     @RequestMapping(
-            value = "/bestof",
+            value = "/bestof/{id}",
             method = arrayOf(RequestMethod.DELETE),
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE))
-    private fun delete(@RequestParam id: Long) {
+    private fun delete(@PathVariable id: String) {
         logger.info("Deleting BestOf #" + id)
         bestOfCommandService.delete(id)
     }

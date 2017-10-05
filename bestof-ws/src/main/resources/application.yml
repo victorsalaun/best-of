@@ -1,5 +1,5 @@
 logging.level:
-  com.victorsalaun.ws:
+  com.victorsalaun.bestof.ws:
     command: INFO
     query: DEBUG
 

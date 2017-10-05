@@ -6,4 +6,3 @@ logging.level:
 spring:
   application:
     name: BESTOF-WS
-

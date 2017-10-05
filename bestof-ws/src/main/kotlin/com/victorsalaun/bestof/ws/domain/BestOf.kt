@@ -1,13 +1,11 @@
 package com.victorsalaun.bestof.ws.domain
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import org.springframework.data.annotation.Id
+import org.springframework.data.elasticsearch.annotations.Document
 
-@Entity
+@Document(indexName = "bestof", type = "bestof", shards = 1, replicas = 0, refreshInterval = "-1")
 data class BestOf(
-        @Id @GeneratedValue(strategy = GenerationType.AUTO)
+        @Id
         val id: Long,
         val title: String,
         val text: String

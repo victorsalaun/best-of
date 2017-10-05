@@ -3,16 +3,13 @@ version '1.0.0-SNAPSHOT'
 
 buildscript {
     ext {
+        elasticsearch_version = '2.4.0'
         kotlin_version = '1.1.51'
-        spring_boot_version = '2.0.0.M4'
-        h2_version = '1.4.196'
+        spring_boot_version = '1.5.7.RELEASE'
     }
 
     repositories {
         mavenCentral()
-        maven {
-            url "https://repo.spring.io/milestone"
-        }
     }
     dependencies {
         classpath group: 'org.jetbrains.kotlin', name: 'kotlin-gradle-plugin', version: kotlin_version
@@ -28,9 +25,6 @@ apply {
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://repo.spring.io/milestone"
-    }
 }
 
 dependencies {
@@ -38,9 +32,16 @@ dependencies {
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: kotlin_version
     compile group: 'org.jetbrains.kotlin', name: 'kotlin-reflect', version: kotlin_version
 
-    compile group: 'com.h2database', name: 'h2', version: h2_version
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: spring_boot_version
+    compile group: 'org.elasticsearch', name: 'elasticsearch', version: elasticsearch_version
+    compile (group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version) {
+    }
+    compile (group: 'org.springframework.boot', name: 'spring-boot-starter-data-elasticsearch', version: spring_boot_version) {
+    }
+    /*compile group: 'org.elasticsearch', name: 'elasticsearch', version: elasticsearch_version
+    compile group: 'org.elasticsearch.client', name: 'transport', version: elasticsearch_version
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.9.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.9.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.9.1'*/
 }
 
 compileKotlin {

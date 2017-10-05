@@ -21,7 +21,7 @@ class BestOfQueryController @Autowired constructor(
             value = "/bestof",
             method = arrayOf(RequestMethod.GET),
             produces = arrayOf(MediaType.APPLICATION_JSON_VALUE))
-    private fun get(@RequestParam id: String): Optional<BestOf>? {
+    private fun get(@RequestParam id: String): BestOf? {
         logger.debug("Getting BestOf #" + id)
         return bestOfQueryService.get(id.toLong())
     }

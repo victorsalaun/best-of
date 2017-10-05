@@ -10,8 +10,8 @@ class BestOfQueryService constructor(
         private val bestOfRepository: BestOfRepository
 ) {
 
-    fun get(id: Long): Optional<BestOf>? {
-        return bestOfRepository.findById(id)
+    fun get(id: Long): BestOf? {
+        return bestOfRepository.findOne(id)
     }
 
 }

@@ -1,6 +1,6 @@
 package com.victorsalaun.bestof.ws.repository
 
 import com.victorsalaun.bestof.ws.domain.BestOf
-import org.springframework.data.repository.CrudRepository
+import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
 
-interface BestOfRepository : CrudRepository<BestOf, Long>
+interface BestOfRepository : ElasticsearchRepository<BestOf, Long>

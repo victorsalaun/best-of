@@ -21,9 +21,9 @@ buildscript {
 }
 
 apply {
-    plugin: 'kotlin'
-    plugin: 'maven'
-    plugin: 'org.springframework.boot'
+    plugin 'kotlin'
+    plugin 'maven'
+    plugin 'org.springframework.boot'
 }
 
 repositories {
